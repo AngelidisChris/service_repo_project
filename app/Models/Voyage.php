@@ -11,6 +11,11 @@ class Voyage extends Model
 
     protected $fillable = ['vessel_id', 'start', 'end', 'revenues', 'expenses'];
 
+    protected $casts = [
+        'start' => 'datetime:Y-m-d',
+        'end' => 'datetime:Y-m-d'
+    ];
+
     public function vessel()
     {
         return $this->belongsTo(Vessel::class);

@@ -13,8 +13,14 @@ class VoyageRepository implements VoyageRepositoryInterface
 
     }
 
-    public function make(Voyage $voyage)
+    public function make(Voyage $voyage): bool
     {
         return $voyage->save();
     }
+
+    public static array $statuses =[
+            'pending',
+            'ongoing',
+            'submitted'
+        ];
 }

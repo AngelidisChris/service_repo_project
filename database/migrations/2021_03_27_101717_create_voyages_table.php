@@ -16,7 +16,7 @@ class CreateVoyagesTable extends Migration
     {
         Schema::create('voyages', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Vessel::class);
+            $table->unsignedBigInteger( 'vessel_id');
             $table->string('code', 64)->nullable();
             $table->dateTime('start');
             $table->dateTime('end')->nullable();

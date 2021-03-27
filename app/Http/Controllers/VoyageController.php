@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VoyageCreateRequest;
 use App\Models\Voyage;
 use App\Repositories\VoyageRepositoryInterface;
+use App\Services\VoyageService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class VoyageController extends Controller
 
     /**
      * VoyageController constructor.
-     * @param $voyageRepository
+     * @param VoyageRepositoryInterface $voyageRepository
      */
     public function __construct(VoyageRepositoryInterface $voyageRepository)
     {
@@ -27,11 +28,16 @@ class VoyageController extends Controller
     {
         $voyage = new Voyage($request->validated());
 
+        $voyageService = new VoyageService($voyage);
+
+        $voyageService->setVoyage();
+
 
         $status = $this->voyageRepository->make($voyage);
 
+
         if ($status)
-            return response()->json($voyage, 201);
+            return response()->json(null, 201);
         else
             return response()->json(null, 500);
     }

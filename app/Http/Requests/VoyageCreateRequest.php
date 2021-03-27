@@ -27,8 +27,8 @@ class VoyageCreateRequest extends FormRequest
             'vessel_id'    => 'required|integer',
             'start' => 'required|date',
             'end' => 'nullable|date|after:start',
-            'revenues' => 'regex:/^\d{1,6}(\.\d{1,2})?$/',
-            'expenses' => 'regex:/^\d{1,6}(\.\d{1,2})?$/'
+            'revenues' => 'nullable|regex:/^\d{1,6}(\.\d{1,2})?$/',
+            'expenses' => 'nullable|regex:/^\d{1,6}(\.\d{1,2})?$/'
 
         ];
     }
