@@ -10,7 +10,7 @@ class VoyageRepository implements VoyageRepositoryInterface
 {
     public function all()
     {
-
+        return Voyage::all();
     }
 
     public function make(Voyage $voyage): bool

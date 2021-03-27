@@ -9,7 +9,7 @@ class Voyage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['vessel_id', 'start', 'end', 'revenues', 'expenses'];
+    protected $fillable = ['vessel_id', 'start', 'end', 'revenues', 'expenses', 'status'];
 
     protected $casts = [
         'start' => 'datetime:Y-m-d',

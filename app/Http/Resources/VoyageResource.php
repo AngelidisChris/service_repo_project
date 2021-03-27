@@ -14,6 +14,16 @@ class VoyageResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'vessel_id' => $this->vessel_id,
+            'code' => $this->code,
+            'start' => $this->start ,
+            'end' => $this->end,
+            'status' => $this->status,
+            'revenues' => $this->revenues,
+            'expenses' => $this->expenses,
+            'profit'    => $this->profit
+        ];
     }
 }
