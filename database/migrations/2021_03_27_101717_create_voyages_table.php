@@ -17,13 +17,13 @@ class CreateVoyagesTable extends Migration
         Schema::create('voyages', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Vessel::class);
-            $table->string('code', 64);
+            $table->string('code', 64)->nullable();
             $table->dateTime('start');
-            $table->dateTime('end');
-            $table->string('status', 16);
-            $table->decimal('revenues', 8,2);
-            $table->decimal('expenses', 8,2);
-            $table->decimal('profit', 8,2);
+            $table->dateTime('end')->nullable();
+            $table->string('status', 16)->default('pending');
+            $table->decimal('revenues', 8,2)->nullable();;
+            $table->decimal('expenses', 8,2)->nullable();;
+            $table->decimal('profit', 8,2)->nullable();;
             $table->timestamps();
         });
     }
